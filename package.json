@@ -1,0 +1,16 @@
+{
+  "name": "react-delete-confirm",
+  "version": "1.0.0",
+  "description": "A small React component to give make the deletion process more impactful, ensuring they really mean it",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "jsx index.jsx > index.js",
+    "preinstall": "npm run build"
+  },
+  "author": "Nate Piche <nate.f.piche@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "react-tools": "^0.13.3"
+  }
+}
