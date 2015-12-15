@@ -5,11 +5,7 @@ module.exports = React.createClass({
     return { modalOpen: false };
   },
 
-  openModal: function() {
-    this.setState({ modalOpen: !this.state.modalOpen });
-  },
-
-  closeModal: function() {
+  toggleModal: function() {
     this.setState({ modalOpen: !this.state.modalOpen });
   },
 
@@ -24,13 +20,23 @@ module.exports = React.createClass({
 
   renderDeleteButton: function() {
     return (
-      <button onClick={this.openModal}>
+      <button onClick={this.toggleModal}>
         DELETE {this.props.name}
       </button>
     );
   },
 
   renderConfirmModal: function() {
+    return (
+      <Modal deleteMethod={this.props.deleteMethod} 
+             name={this.props.name}
+             closeMethod={this.toggleModal} />
+    );
+  }
+});
+
+Modal = React.createClass({
+  render: function() {
     divStyle = {
       position: 'fixed',
       top: '50%',
@@ -45,10 +51,10 @@ module.exports = React.createClass({
 
     return (
       <div style={divStyle}>
-        <button onClick={this.closeModal}>
+        <button onClick={this.props.closeMethod}>
           CLOSE MODAL
         </button>
       </div>
-    )
+    );
   }
 });

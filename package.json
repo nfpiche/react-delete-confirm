@@ -5,12 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "jsx index.jsx > index.js",
-    "install": "npm run build"
+    "build": "babel index.jsx -o index.js",
+    "prepublish": "npm run build"
   },
   "author": "Nate Piche <nate.f.piche@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "react-tools": "^0.13.3"
+    "babel": "^6.3.13",
+    "babel-cli": "^6.3.17",
+    "babel-preset-react": "^6.3.13"
   }
 }
