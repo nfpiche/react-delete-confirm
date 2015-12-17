@@ -7,7 +7,20 @@ var Modal = React.createClass({
   },
 
   handleChange: function(event) {
-    this.setState({ inputValue: event.target.value });
+    this.setState({ inputValue: event.target.value }, function() {
+      this.setState({ canDelete: this.doNameAndInputMatch() });
+    });
+  },
+
+  renderDeleteButton: function() {
+    return (
+      <Button handleClick={this.props.deleteMethod}
+              label={"REALLY DELETE IT!"} />
+    );
+  }, 
+
+  doNameAndInputMatch: function() {
+    return this.state.inputValue === this.props.name
   },
 
   render: function() {
@@ -27,16 +40,10 @@ var Modal = React.createClass({
       <div style={divStyle}>
         <Button handleClick={this.props.handleClick}
                 label={"NEVERMIND!"} />
+        <span>You'll have to type in the item name <em>exactly</em> if you want the delete button to appear!</span>
         <Input handleChange={this.handleChange} />
-        {this.renderDeleteButton()}
+        {this.state.canDelete ? this.renderDeleteButton() : null}
       </div>
-    );
-  }
-
-  renderDeleteButton: function() {
-    return (
-      <Button handleClick={this.props.deleteMethod}
-              label={"REALLY DELETE IT!"} />
     );
   }
 });
