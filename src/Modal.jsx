@@ -24,23 +24,25 @@ var Modal = React.createClass({
   },
 
   render: function() {
-    divStyle = {
-      position: 'fixed',
-      top: '50%',
-      left: '50%',
-      marginTop: '-75px',
-      marginLeft: '-150px',
-      backgroundColor: 'red',
-      height: '150px',
-      width: '300px',
-      zIndex: '9999'
+    var styles = {
+      modalClass: {
+        position: 'fixed',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: 'red',
+        height: '150px',
+        width: '300px',
+        zIndex: '9999',
+      }
     }
 
     return (
-      <div style={divStyle}>
+      <div style={this.props.modalClass ? {} : styles.modalClass} className={this.props.modalClass}>
         <Button handleClick={this.props.handleClick}
+                buttonClass={this.props.buttonClass}
                 label={"NEVERMIND!"} />
-        <span>You'll have to type in the item name <em>exactly</em> if you want the delete button to appear!</span>
+        <span>You'll have to type in the name <em>exactly</em> if you want the delete button to appear!</span>
         <Input handleChange={this.handleChange} />
         {this.state.canDelete ? this.renderDeleteButton() : null}
       </div>

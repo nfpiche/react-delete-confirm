@@ -19,13 +19,16 @@ var DeleteConfirm = React.createClass({
   renderDeleteButton: function() {
     return (
       <Button handleClick={this.toggleModal}
+              buttonClass={this.props.buttonClass}
               label={"DELETE"} />
     );
   },
 
   renderConfirmModal: function() {
     return (
-      <Modal deleteMethod={this.props.deleteMethod} 
+      <Modal deleteMethod={this.props.deleteMethod}
+             modalClass={this.props.modalClass}
+             buttonClass={this.props.buttonClass}
              name={this.props.name}
              handleClick={this.toggleModal} />
     );
