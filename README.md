@@ -21,10 +21,10 @@ This is availble through npm, just run ```npm install react-delete-confirm```
 
 ## PROPS
   * *deleteMethod* (required)
-      The method you would like to trigger that will delete the item
+      * The method you would like to trigger that will delete the item
   * *name* (require)
-      The name of the item you would like to delete
+      * The name of the item you would like to delete
   * *modalClass* (optional)
-      The class you would like to apply to the modal (recommended)
+      * The class you would like to apply to the modal (recommended)
   * *buttonClass* (optional)
-      The class you would like to apply to the buttons (recommended)
+      * The class you would like to apply to the buttons (recommended)
