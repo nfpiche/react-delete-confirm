@@ -8,8 +8,12 @@
     "build": "babel src/ -o index.js",
     "prepublish": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nfpiche/react-delete-confirm"
+  },
   "author": "Nate Piche <nate.f.piche@gmail.com>",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "babel-cli": "^6.3.17",
     "babel-preset-react": "^6.3.13"
