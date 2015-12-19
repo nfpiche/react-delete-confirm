@@ -15,6 +15,7 @@ var Modal = React.createClass({
   renderDeleteButton: function() {
     return (
       <Button handleClick={this.props.deleteMethod}
+              buttonClass={this.props.buttonClass}
               label={"DELETE"} />
     );
   }, 
